@@ -2,13 +2,14 @@ import exeptions.FimNaoIniciadoExeption;
 import exeptions.InicioMaiorQueFimExeption;
 import exeptions.InicioNaoIniciadoExeption;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class TimerCatcher {
 
     private static float inicioDaOperacao=-1;
     private static float fimDaOperacao=-1;
-    private static List<Float> times;
+    private static List<Float> times=new LinkedList<Float>();
     //Setters and Getters
 
     public static float getInicioDaOperacao() {
@@ -55,8 +56,8 @@ public class TimerCatcher {
 
     public static float tempoDeExecucaoDaOperacao(){
         Float cronometroResultante = getFimDaOperacao() - getInicioDaOperacao();
-        times.add(cronometroResultante);
         zerarTempo();
+        times.add(cronometroResultante);
         return  cronometroResultante;
     }
 
