@@ -1,1 +1,8 @@
-.
+# ignore all .txt files
+*.txt
+# ignore all .iml files
+*.iml
+# ignore .idea/
+.idea/
+#ignore out/
+out/
