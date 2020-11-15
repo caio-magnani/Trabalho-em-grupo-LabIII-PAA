@@ -33,7 +33,6 @@ public class AlgoritimoSupermercado implements Algoritmo<Produto>
         LinkedList<Produto> productList = dadosCriados;
 
         // FORÇA BRUTA
-        boolean next = true;
         double orcamentoIncremental = 0;
         int pesoIncremental = 0;
         List<Produto> disponivel = new ArrayList<Produto>();
