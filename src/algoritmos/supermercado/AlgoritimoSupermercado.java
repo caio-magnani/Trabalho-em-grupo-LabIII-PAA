@@ -23,7 +23,7 @@ public class AlgoritimoSupermercado implements Algoritmo<Produto>
         return productList;
     }
 
-    public void algoritmo(LinkedList<Produto> dadosCriados, int n) {
+    public void resolver(LinkedList<Produto> dadosCriados, int n) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Para prosseguirmos por favor insira o seu orçamento");
         double orcamentoMax = scanner.nextDouble();
