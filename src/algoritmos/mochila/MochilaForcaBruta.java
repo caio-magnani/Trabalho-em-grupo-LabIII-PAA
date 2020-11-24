@@ -11,7 +11,7 @@ public class MochilaForcaBruta extends Mochila{
     @Override
     public void resolver(LinkedList<Item> dadosCriados, int n) {
         LinkedList<Item> resposta=dadosCriados;
-        LinkedList<Item> possiveis=new LinkedList<Item>[];
+        LinkedList<Item> possiveis=new LinkedList<Item>();
 
     }
 }
