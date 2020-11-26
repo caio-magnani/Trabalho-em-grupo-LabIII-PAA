@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class Mochila implements Algoritmo<Item> {
-    static int capacidade;
+    protected static int capacidade;
     protected static final float PROPORCAOCAPACIDADE = 6.5f;
     @Override
     public LinkedList<Item> preparationSet(int n) {
