@@ -1,5 +1,7 @@
 package algoritmos;
 
+import algoritmos.mochila.Item;
+
 import java.util.LinkedList;
 
 public interface Algoritmo<E>{

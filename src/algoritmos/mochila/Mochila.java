@@ -1,40 +1,31 @@
 package algoritmos.mochila;
 
 import algoritmos.Algoritmo;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
-public class Mochila implements Algoritmo<Item> {
-    public static int pesoMax;
-    public static int valorMax;
-
+public abstract class Mochila implements Algoritmo<Item> {
+    static int capacidade;
+    protected static final float PROPORCAOCAPACIDADE = 6.5f;
     @Override
     public LinkedList<Item> preparationSet(int n) {
-        LinkedList<Item> items =new LinkedList<Item>();
-        for (int i = 0; i < n; i++){
-            items.add(new Item(randomPeso(),randomValor()));
+        LinkedList<Item> prod = new LinkedList<Item>();
+        for(int i=0; i<n; i++){
+            Item novo = new Item();
+            prod.add(novo);
         }
-        return items;
+        capacidade=criarCapacidade(prod,PROPORCAOCAPACIDADE);
+        return prod;
     }
 
-    @Override
-    public void resolver(LinkedList<Item> dadosCriados, int n) {
-    }
+    static int criarCapacidade(List<Item> lista, float proporcao){
+        int pesoTotal = lista.stream().mapToInt(p -> p.peso).sum();
+        int quantTotal = lista.size();
+        float media = (float)pesoTotal/quantTotal;
 
-    private int randomPeso(){
-        Random rand =new Random();
-        int x = rand.nextInt(pesoMax);
-        while (x==0 || x<0){
-            x=rand.nextInt(pesoMax);
-        }
-        return x;
-    }
-    private int randomValor(){
-        Random rand =new Random();
-        int x = rand.nextInt(valorMax);
-        while (x==0 || x<0){
-            x=rand.nextInt(valorMax);
-        }
-        return x;
+        return (int)Math.ceil(media * proporcao);
     }
 }

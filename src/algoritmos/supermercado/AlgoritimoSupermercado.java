@@ -1,6 +1,7 @@
 package algoritmos.supermercado;
 
 import algoritmos.Algoritmo;
+import algoritmos.mochila.Item;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
