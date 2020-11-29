@@ -8,7 +8,7 @@ public class AnaliseDeAlgoritmo {
     public static int n=700;       //tamanho de dado
 
     public static void main(String[] args) {
-        
+
     }
 
     public static float AnaliseDeAlgoritmo(Algoritmo algoritmo){
