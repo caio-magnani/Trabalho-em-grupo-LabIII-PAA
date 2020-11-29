@@ -1,8 +1,5 @@
 import algoritmos.Algoritmo;
-import algoritmos.mochila.Mochila;
-import algoritmos.mochila.MochilaBackTracking;
-import algoritmos.mochila.MochilaForcaBruta;
-import algoritmos.mochila.MochilaProgramacaoDinamica;
+import algoritmos.mochila.*;
 
 import java.util.LinkedList;
 
@@ -11,10 +8,7 @@ public class AnaliseDeAlgoritmo {
     public static int n=700;       //tamanho de dado
 
     public static void main(String[] args) {
-        MochilaForcaBruta mFB=new MochilaForcaBruta();
-        MochilaBackTracking mBT=new MochilaBackTracking();
-        MochilaProgramacaoDinamica mPD=new MochilaProgramacaoDinamica();
-        System.out.println(AnaliseDeAlgoritmo(mPD));
+        
     }
 
     public static float AnaliseDeAlgoritmo(Algoritmo algoritmo){

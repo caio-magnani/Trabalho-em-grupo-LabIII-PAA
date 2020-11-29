@@ -24,13 +24,14 @@ import java.util.Random;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class Item {
+public class Item implements Comparable{
     static Random sorteio = new Random(42);                  //--> fixo
     //static Random sorteio = new Random(System.nanoTime());   --> aleatório 
     static final int PESOMAX = 50;
     static final float VALMAX = 40f;
     int peso;
     float valor;
+    private Item o;
 
     public Item(){
         this.peso = 1+sorteio.nextInt(PESOMAX);
@@ -45,6 +46,22 @@ public class Item {
     @Override
     public String toString(){
         return "P: "+this.peso+" | V: "+this.valor;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return compareTo((Item) o);
+    }
+    private int compareTo(Item o){
+        this.o = o;
+        if (this.peso==o.peso&&this.valor==o.valor){
+            return 0;
+        }
+        if (this.peso<=o.peso&&this.valor>=o.valor){
+            return 1;
+        }
+        else
+            return -1;
     }
 
 }
