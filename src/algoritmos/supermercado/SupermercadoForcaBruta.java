@@ -1,14 +1,13 @@
 package algoritmos.supermercado;
 
 import algoritmos.Algoritmo;
-import algoritmos.mochila.Item;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AlgoritimoSupermercado implements Algoritmo<Produto>
+public class SupermercadoForcaBruta implements Algoritmo<Produto>
 {
     public LinkedList<Produto> preparationSet(int n) {
         LinkedList<Produto> productList = new LinkedList<Produto>();
@@ -17,9 +16,7 @@ public class AlgoritimoSupermercado implements Algoritmo<Produto>
         int[] peso = {1,2,2,3,7,5};
 
         for(int i = 0; i < products.length ; i++)
-        {
             productList.add(new Produto(preco[i], peso[i], products[i]));
-        }
 
         return productList;
     }
@@ -32,6 +29,7 @@ public class AlgoritimoSupermercado implements Algoritmo<Produto>
         int pesoMax = scanner.nextInt();
 
         LinkedList<Produto> productList = dadosCriados;
+        boolean repeat = false;
 
         // FORÇA BRUTA
         double orcamentoIncremental = 0;
@@ -50,14 +48,13 @@ public class AlgoritimoSupermercado implements Algoritmo<Produto>
 
                 orcamentoIncremental = aux1;
                 pesoIncremental =  aux2;
-                disponivel.add(productList.get(i));
-                disponivel.add(productList.get(j));
+                int index = disponivel.indexOf(productList.get(i));
+                if(repeat || index == -1)
+                    disponivel.add(productList.get(i));
+                index = disponivel.indexOf(productList.get(j));
+                if(repeat || index == -1)
+                    disponivel.add(productList.get(j));
             }
-
-
-        System.out.println("Através do Força Bruta, conseguimos alocar um total de: "+disponivel.size() + " produtos");
-        System.out.println("Orçamento total para essa compra: "+ orcamentoIncremental);
-        System.out.println("Peso total para essa compra: "+ pesoIncremental);
     }
 
 }
