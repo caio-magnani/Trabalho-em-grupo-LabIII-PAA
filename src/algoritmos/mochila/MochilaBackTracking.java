@@ -1,48 +1,50 @@
 package algoritmos.mochila;
 
-import javax.swing.*;
 import java.util.LinkedList;
 
 public class MochilaBackTracking extends Mochila{
+    private static LinkedList<Item> melhorCombinacao=new LinkedList<>();
+    private static LinkedList<Item> combinacaoAtual=new LinkedList<>();
+    private static LinkedList<Item> dadosCriados;
+
     @Override
     public void resolver(LinkedList<Item> dadosCriados, int n) {
-        LinkedList<Item>melhorCombinacao=new LinkedList<Item>();
-        LinkedList<Item>combinacaoAtual=new LinkedList<Item>();
-        Double melhorSoma=0D;
-        int i=1;//em qual indice do array esta
-        int j=1;//em qual opção esta
-        combinacaoAtual.add(dadosCriados.get(0));
-        do{
-
-            int pesoAtual=combinacaoAtual.stream().mapToInt(p->p.peso).sum();
-            if(capacidade < pesoAtual ){
-                i--;
-                j++;
-                combinacaoAtual.remove();
-            }
-            else{
-                Double somaAtual= combinacaoAtual.stream().mapToDouble(p->p.valor).sum();
-                if(melhorSoma<somaAtual){
-                    melhorCombinacao= (LinkedList<Item>) combinacaoAtual.clone();
-                    melhorSoma= somaAtual;
-                }
-                if(combinacaoAtual.size()>n){
-                    i--;
-                    j++;
-                    combinacaoAtual.remove();
-                }
-                combinacaoAtual.add(dadosCriados.get(j));
-                j++;
-                i++;
-
+        combinacaoAtual.clear();
+        melhorCombinacao.clear();
+//        System.out.println("Capacidade da mochila = "+capacidade);
+//        System.out.println("Com os dados abaixo \n"+dadosCriados.toString());
+        this.dadosCriados=dadosCriados;
+        backTracking();
+//        System.out.println("O BackTrack \nAchou o valor de ="+melhorCombinacao.stream().mapToDouble(Item::getValor).sum());
+//        System.out.println("Peso da solução ="+melhorCombinacao.stream().mapToInt(i->i.peso).sum());
+//        System.out.println("Melhor seguencia abaixo \n"+melhorCombinacao.toString());
+    }
+    //j = indece da combinacaoAtual i= indice de dados criados
+    private int back(int i){
+        combinacaoAtual.removeLast();
+        return ++i;
+    }
+    private int ehFim(int i){
+        if (combinacaoAtual.get(0).compareTo(dadosCriados.get(dadosCriados.size()-1))==0)
+            return dadosCriados.size();
+        else
+            return verificar(i);
+    }
+    private int verificar(int i){
+        if (combinacaoAtual.stream().mapToInt(Item::getPeso).sum()>capacidade){
+            return back(i);
+        }
+        else if(combinacaoAtual.stream().mapToDouble(Item::getValor).sum()>melhorCombinacao.stream().mapToDouble(Item::getValor).sum()){
+            for (int j=0;j<combinacaoAtual.size();j++){
+                melhorCombinacao.add(combinacaoAtual.get(i).getItem());
             }
         }
-        while (combinacaoAtual.get(0)!=dadosCriados.get(n-1));
-
-        System.out.println("Capacidade da mochila= "+capacidade);
-        System.out.println("Todas as opções"+dadosCriados.toString());
-        System.out.println("A melhor combinação: "+melhorCombinacao.toString());
-        System.out.println("Com valor de: "+melhorSoma);
-        System.out.println("E peso de: "+melhorCombinacao.stream().mapToInt(p->p.peso).sum());
+        return i;
+    }
+    private void backTracking(){
+        for (int i=0;i<dadosCriados.size();i++){
+            combinacaoAtual.add(dadosCriados.get(i));
+            i=ehFim(i);
+        }
     }
 }

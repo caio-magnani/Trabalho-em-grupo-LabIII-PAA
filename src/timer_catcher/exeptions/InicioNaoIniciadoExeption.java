@@ -1,4 +1,4 @@
-package exeptions;
+package timer_catcher.exeptions;
 
 public class InicioNaoIniciadoExeption extends NullPointerException {
     public InicioNaoIniciadoExeption() {
@@ -8,7 +8,7 @@ public class InicioNaoIniciadoExeption extends NullPointerException {
     @Override
     public String getMessage(){
 
-        return "Marcação de tempo do Inicio precisa ser iniciada, use TimerCatcher.setInicioDaOperacao(); antes da operação ";
+        return "Marcação de tempo do Inicio precisa ser iniciada, use timer_catcher.TimerCatcher.setInicioDaOperacao(); antes da operação ";
     }
     @Override
     public void printStackTrace() {

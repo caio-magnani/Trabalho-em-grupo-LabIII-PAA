@@ -33,7 +33,7 @@ public class Tabela <T>{
             atualX++;
         }
         if (atualX==maxX){
-            System.out.println("Fim da Tabela");
+//            System.out.println("Fim da Tabela");
             atualY=maxY-1;
         }
     }
@@ -46,14 +46,19 @@ public class Tabela <T>{
     }
 
     public LinkedList<T> getAtualPropiedades(boolean ehPesoMax){
-        if(ehPesoMax)
+        if(ehPesoMax){
             return tabela[0][atualY];
+
+        }
         else
             return tabela[atualX][0];
     }
 
     public int getIndiceLinha(){
         return atualX;
+    }
+    public int getIndiceColuna(){
+        return atualY;
     }
 
     public LinkedList<T> getAnyOne(int x,int y){
