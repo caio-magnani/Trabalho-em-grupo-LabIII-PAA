@@ -61,6 +61,8 @@ public class SupermercadoForcaBruta implements Algoritmo<Produto>
                 if(repeat || index == -1)
                     disponivel.add(productList.get(j));
             }
+
+        System.out.println("Temos um total de " + disponivel.size() + " itens na lista");
     }
 
 }

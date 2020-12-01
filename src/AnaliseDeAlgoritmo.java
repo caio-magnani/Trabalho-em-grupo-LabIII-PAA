@@ -61,7 +61,7 @@ public class AnaliseDeAlgoritmo {
         {
             System.out.println("Supermercado Escolhido");
             System.out.println("0-Deseja resolver a Supermercado com a solução: força bruta");
-            System.out.println("1-Deseja resolver a Supermercado com a solução: divisão e conquista");
+            System.out.println("1-Deseja resolver a Supermercado com a solução: BackTracking");
             opcaoSolucao=Integer.parseInt(leitor.nextLine());
             if(opcaoSolucao==0){
                 AnaliseDeAlgoritmo(new SupermercadoForcaBruta());

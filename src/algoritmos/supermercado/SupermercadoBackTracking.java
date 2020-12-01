@@ -15,8 +15,8 @@ public class SupermercadoBackTracking implements Algoritmo<Produto> {
 
         for(int i = 0; i < products.length ; i++)
         {
-            int numero = random.nextInt(100);
-            double numeroDouble = random.nextDouble() * 100;
+            int numero = random.nextInt(50);
+            double numeroDouble = random.nextDouble() * 50;
             productList.add(new Produto(numeroDouble, numero, "Product"+i+1));
         }
 
@@ -63,6 +63,8 @@ public class SupermercadoBackTracking implements Algoritmo<Produto> {
             }
         }
         while ((i < n && j < n )) ;
+
+        System.out.println("Temos um total de " + combinacaoAtual.size() + " itens na lista");
 
     }
 }
