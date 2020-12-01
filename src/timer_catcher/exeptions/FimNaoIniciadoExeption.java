@@ -1,4 +1,4 @@
-package exeptions;
+package timer_catcher.exeptions;
 
 public class FimNaoIniciadoExeption extends NullPointerException{
     public FimNaoIniciadoExeption() {
@@ -8,7 +8,7 @@ public class FimNaoIniciadoExeption extends NullPointerException{
     public String getMessage(){
 
         return "Marcação de tempo do Fim precisa ser iniciado," +
-                " use TimerCatcher.setFimDaOperacao(); " +
+                " use timer_catcher.TimerCatcher.setFimDaOperacao(); " +
                 "apos da função da classe : AlgoritimosASerAnalisados ";
     }
     @Override

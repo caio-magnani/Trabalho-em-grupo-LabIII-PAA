@@ -1,5 +1,6 @@
 package algoritmos.mochila;
 
+import java.util.Comparator;
 import java.util.Random;
 /** 
  * MIT License
@@ -24,14 +25,32 @@ import java.util.Random;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class Item implements Comparable{
+public class Item implements Comparable {
     static Random sorteio = new Random(42);                  //--> fixo
     //static Random sorteio = new Random(System.nanoTime());   --> aleatório 
     static final int PESOMAX = 50;
     static final float VALMAX = 40f;
+
     int peso;
     float valor;
     private Item o;
+
+    public Item getItem() {
+        return this;
+    }
+
+    public Item(int i) {
+        this.peso = i;
+        this.valor = i;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public float getValor() {
+        return valor;
+    }
 
     public Item(){
         this.peso = 1+sorteio.nextInt(PESOMAX);
@@ -42,6 +61,10 @@ public class Item implements Comparable{
         this.peso = peso;
         this.valor = valor;
     }
+    public Item(Item item){
+        this.peso=item.peso;
+        this.valor=item.valor;
+    }
 
     @Override
     public String toString(){
@@ -50,18 +73,21 @@ public class Item implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        return compareTo((Item) o);
+        return compareToItem((Item) o);
     }
-    private int compareTo(Item o){
-        this.o = o;
+
+    private int compareToItem(Item o) {
         if (this.peso==o.peso&&this.valor==o.valor){
             return 0;
         }
-        if (this.peso<=o.peso&&this.valor>=o.valor){
+        else if (this.peso<=o.peso&&this.valor>= o.valor){
             return 1;
         }
-        else
+        else if (this.peso>=o.peso&&this.valor<=o.valor){
             return -1;
+        }
+        else if(this.valor/this.peso>o.valor/o.peso)
+        return 1;
+        return -1;
     }
-
 }

@@ -1,6 +1,8 @@
-import exeptions.FimNaoIniciadoExeption;
-import exeptions.InicioMaiorQueFimExeption;
-import exeptions.InicioNaoIniciadoExeption;
+package timer_catcher;
+
+import timer_catcher.exeptions.FimNaoIniciadoExeption;
+import timer_catcher.exeptions.InicioMaiorQueFimExeption;
+import timer_catcher.exeptions.InicioNaoIniciadoExeption;
 
 import java.util.LinkedList;
 import java.util.List;

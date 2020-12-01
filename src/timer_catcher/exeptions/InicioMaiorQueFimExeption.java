@@ -1,4 +1,4 @@
-package exeptions;
+package timer_catcher.exeptions;
 
 public class InicioMaiorQueFimExeption extends Exception {
     public InicioMaiorQueFimExeption() {
