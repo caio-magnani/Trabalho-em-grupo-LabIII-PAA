@@ -1,26 +1,29 @@
 package algoritmos.supermercado;
 
+import algoritmos.Algoritmo;
 import algoritmos.mochila.Item;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class SupermercadoBackTracking {
-    public static LinkedList<Produto> preparationSet(int n) {
+public class SupermercadoBackTracking implements Algoritmo<Produto> {
+    public LinkedList<Produto> preparationSet(int n) {
         LinkedList<Produto> productList = new LinkedList<Produto>();
-        String[] products = {"Sabão","Shampoo", "Detergente", "Café", "Lasanha Congelada", "Refrigerante"};
-        double[] preco = {4.00,6.19, 3.29,4.29,16.99,11.69};
-        int[] peso = {1,2,2,3,7,5};
+        String[] products = new String[n];
+        double[] preco = new double[n];
+        int[] peso = new int[n];
+        Random random = new Random();
 
         for(int i = 0; i < products.length ; i++)
-            productList.add(new Produto(preco[i], peso[i], products[i]));
+        {
+            int numero = random.nextInt(100);
+            double numeroDouble = random.nextDouble() * 100;
+            productList.add(new Produto(numeroDouble, numero, "Product"+i+1));
+        }
 
         return productList;
     }
 
-    public static void resolver(LinkedList<Produto> dadosCriados, int n) {
+    public void resolver(LinkedList<Produto> dadosCriados, int n) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Para prosseguirmos por favor insira o seu orçamento");
         double orcamentoMax = scanner.nextDouble();
@@ -33,8 +36,8 @@ public class SupermercadoBackTracking {
         LinkedList<Produto>melhorCombinacao=new LinkedList<Produto>();
         LinkedList<Produto>combinacaoAtual=new LinkedList<Produto>();
         Double melhorSoma=0D;
-        int i=1;//em qual indice do array esta
-        int j=1;//em qual opção esta
+        int i=0;//em qual indice do array esta
+        int j=0;//em qual opção esta
         combinacaoAtual.add(productList.get(0));
         do{
             int pesoAtual=combinacaoAtual.stream().mapToInt(p->p.peso).sum();
@@ -59,7 +62,7 @@ public class SupermercadoBackTracking {
                 i++;
             }
         }
-        while (combinacaoAtual.get(0)!=dadosCriados.get(n-1) && i != 6) ;
+        while ((i < n && j < n )) ;
 
     }
 }

@@ -6,17 +6,23 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class SupermercadoForcaBruta implements Algoritmo<Produto>
 {
     public LinkedList<Produto> preparationSet(int n) {
         LinkedList<Produto> productList = new LinkedList<Produto>();
-        String[] products = {"Sabão","Shampoo", "Detergente", "Café", "Lasanha Congelada", "Refrigerante"};
-        double[] preco = {4.00,6.19, 3.29,4.29,16.99,11.69};
-        int[] peso = {1,2,2,3,7,5};
+        String[] products = new String[n];
+        double[] preco = new double[n];
+        int[] peso = new int[n];
+        Random random = new Random();
 
         for(int i = 0; i < products.length ; i++)
-            productList.add(new Produto(preco[i], peso[i], products[i]));
+        {
+            int numero = random.nextInt(50);
+            double numeroDouble = random.nextDouble() * 50;
+            productList.add(new Produto(numeroDouble, numero, "Product"+i+1));
+        }
 
         return productList;
     }
