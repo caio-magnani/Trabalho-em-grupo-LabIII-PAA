@@ -35,8 +35,8 @@ public class MochilaProgramacaoDinamica extends Mochila{
 
     @Override
     public void resolver(LinkedList<Item> dadosCriados, int n) {
-//        System.out.println("Capacidade da mochila = "+capacidade);
-//        System.out.println("Com os dados abaixo \n"+dadosCriados.toString());
+        System.out.println("Capacidade da mochila = "+capacidade);
+        System.out.println("Com os dados abaixo \n"+dadosCriados.toString());
         dadosCriados.sort(Item::compareTo);
         for (int x=0;x<n;x++){
             for (int y=0;y<capacidade/pesoDaFase;y++) {
@@ -57,8 +57,8 @@ public class MochilaProgramacaoDinamica extends Mochila{
                 table.next();
             }
         }
-//        System.out.println("A programacao dinamica\n A melhor combinacao"+table.getUltimo().toString());
-//        System.out.println("Com valor de = "+table.getUltimoValor());
-//        System.out.println("E peso de : "+table.getUltimo().stream().mapToInt(Item::getPeso).sum());
+        System.out.println("A programacao dinamica\n A melhor combinacao"+table.getUltimo().toString());
+        System.out.println("Com valor de = "+table.getUltimoValor());
+        System.out.println("E peso de : "+table.getUltimo().stream().mapToInt(Item::getPeso).sum());
     }
 }

@@ -1,14 +1,79 @@
 import algoritmos.Algoritmo;
 import algoritmos.mochila.*;
+import algoritmos.pontos.DEPDivisaoEConquista;
+import algoritmos.pontos.DEPForcaBruta;
+import algoritmos.supermercado.SupermercadoBackTracking;
+import algoritmos.supermercado.SupermercadoForcaBruta;
 import timer_catcher.TimerCatcher;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class AnaliseDeAlgoritmo {
     public static int vezesDeRepeticao =1;
     public static int n=100;       //tamanho de dado
 
     public static void main(String[] args) {
-
+        int opcaoProblema=0;
+        int opcaoSolucao=0;
+        Scanner leitor =new Scanner(System.in);
+        System.out.println("Escreva a quantidade de: n = tamanho do seu problema:");
+        n=Integer.parseInt(leitor.nextLine());
+        System.out.println("Escreva a quantidade de: veses de repetção - quantidade de testes com mesmo n");
+        vezesDeRepeticao=Integer.parseInt(leitor.nextLine());
+        System.out.println("Escolha um problema");
+        System.out.println("0-Mochila");
+        System.out.println("1-Par de Pontos");
+        System.out.println("2-Supermercado");
+        System.out.println("3-Robo");
+        opcaoProblema=Integer.parseInt(leitor.nextLine());
+        if(opcaoProblema==0){
+            System.out.println("Mochila Escolhida");
+            System.out.println("0-Deseja resolver a Mochila com a solução: força bruta BRUTAL");
+            System.out.println("1-Deseja resolver a Mochila com a solução: programação dinamica");
+            System.out.println("2-Deseja resolver a Mochila com a solução: algoritmo guloso");
+            opcaoSolucao=Integer.parseInt(leitor.nextLine());
+            if(opcaoSolucao==0){
+                AnaliseDeAlgoritmo(new MochilaForcaBruta());
+            }
+            if(opcaoSolucao==1){
+                AnaliseDeAlgoritmo(new MochilaProgramacaoDinamica());
+            }
+            if(opcaoSolucao==2){
+                AnaliseDeAlgoritmo(new MochilaAlgoritmoGuloso());
+            }
+        }
+        if(opcaoProblema==1){
+            System.out.println("Par de Pontos Escolhido");
+            System.out.println("0-Deseja resolver a Par de Pontos com a solução: força bruta");
+            System.out.println("1-Deseja resolver a Par de Pontos com a solução: divisão e conquista");
+            opcaoSolucao=Integer.parseInt(leitor.nextLine());
+            if(opcaoSolucao==0){
+                AnaliseDeAlgoritmo(new DEPForcaBruta());
+            }
+            if(opcaoSolucao==1){
+                AnaliseDeAlgoritmo(new DEPDivisaoEConquista());
+            }
+        }
+        if(opcaoProblema==2)
+        {
+            System.out.println("Supermercado Escolhido");
+            System.out.println("0-Deseja resolver a Supermercado com a solução: força bruta");
+            System.out.println("1-Deseja resolver a Supermercado com a solução: divisão e conquista");
+            opcaoSolucao=Integer.parseInt(leitor.nextLine());
+            if(opcaoSolucao==0){
+                AnaliseDeAlgoritmo(new SupermercadoForcaBruta());
+            }
+            if(opcaoSolucao==1){
+                AnaliseDeAlgoritmo(new SupermercadoBackTracking());
+            }
+        }
+        if(opcaoProblema==3)
+        {
+            System.out.println("Execute Main.java do diretorio src/algoritmos/robo");
+        }
     }
 
     public static float AnaliseDeAlgoritmo(Algoritmo algoritmo){

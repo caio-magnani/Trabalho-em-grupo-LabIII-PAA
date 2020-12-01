@@ -3,7 +3,7 @@ package algoritmos.pontos;
 import java.awt.*;
 import java.util.LinkedList;
 
-public class DEPForcaBruta extends DistanciaEntrePontos{
+public class DEPForcaBruta extends algoritmos.pontos.DistanciaEntrePontos {
 
     @Override
     public void resolver(LinkedList<Point> dadosCriados, int n) {

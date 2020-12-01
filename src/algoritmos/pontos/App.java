@@ -1,7 +1,6 @@
 package algoritmos.pontos;
 
 import java.awt.Point;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
 

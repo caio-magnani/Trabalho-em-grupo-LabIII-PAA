@@ -3,7 +3,7 @@ package algoritmos.pontos;
 import java.awt.*;
 import java.util.LinkedList;
 
-public class DEPDivisaoEConquista extends DistanciaEntrePontos{
+public class DEPDivisaoEConquista extends algoritmos.pontos.DistanciaEntrePontos {
 
     @Override
     public void resolver(LinkedList<Point> dadosCriados, int n) {
