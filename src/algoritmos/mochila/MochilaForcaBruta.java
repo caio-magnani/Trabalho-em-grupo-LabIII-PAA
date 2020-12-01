@@ -9,8 +9,8 @@ public class MochilaForcaBruta extends Mochila{
 
     @Override
     public void resolver(LinkedList<Item> dadosCriados, int n) {
-//        System.out.println("Capacidade da mochila = "+capacidade);
-//        System.out.println("Com os dados abaixo \n"+dadosCriados.toString());
+        System.out.println("Capacidade da mochila = "+capacidade);
+        System.out.println("Com os dados abaixo \n"+dadosCriados.toString());
         LinkedList<LinkedList<Item>>possiveis=new LinkedList<LinkedList<Item>>();//Gera as possibilidades
         LinkedList<LinkedList<Item>> dones=new LinkedList<>();//Quarda as possibilidades prontas
         for (int i=0;i<n;i++){//inicia
@@ -42,11 +42,11 @@ public class MochilaForcaBruta extends Mochila{
             combinacaoAtual=dones.get(i);
             verificar();
         }
-//        System.out.println(dones.toString());
-//        System.out.println("O Forca Bruta \nAchou o valor de ="+
-//                melhorCombinacao.stream().mapToDouble(Item::getValor).sum());
-//        System.out.println("Peso da solução ="+melhorCombinacao.stream().mapToInt(Item::getPeso).sum());
-//        System.out.println("Melhor seguencia abaixo \n"+melhorCombinacao.toString());
+        System.out.println(dones.toString());
+        System.out.println("O Forca Bruta \nAchou o valor de ="+
+                melhorCombinacao.stream().mapToDouble(Item::getValor).sum());
+        System.out.println("Peso da solução ="+melhorCombinacao.stream().mapToInt(Item::getPeso).sum());
+        System.out.println("Melhor seguencia abaixo \n"+melhorCombinacao.toString());
     }
 
     private void verificar() {

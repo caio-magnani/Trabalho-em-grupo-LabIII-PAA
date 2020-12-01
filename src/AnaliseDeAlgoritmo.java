@@ -16,6 +16,9 @@ public class AnaliseDeAlgoritmo {
     public static int n=100;       //tamanho de dado
 
     public static void main(String[] args) {
+        System.out.println("Bem Vindo Ao AnalisedeAlgoritmo.app!!");
+        System.out.println("_____________________________________");
+        System.out.println("\n Siga as instruções a baixo:");
         int opcaoProblema=0;
         int opcaoSolucao=0;
         Scanner leitor =new Scanner(System.in);
@@ -36,13 +39,13 @@ public class AnaliseDeAlgoritmo {
             System.out.println("2-Deseja resolver a Mochila com a solução: algoritmo guloso");
             opcaoSolucao=Integer.parseInt(leitor.nextLine());
             if(opcaoSolucao==0){
-                AnaliseDeAlgoritmo(new MochilaForcaBruta());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new MochilaForcaBruta())+" Decimos de Segundos");
             }
             if(opcaoSolucao==1){
-                AnaliseDeAlgoritmo(new MochilaProgramacaoDinamica());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new MochilaProgramacaoDinamica())+" Decimos de Segundos");
             }
             if(opcaoSolucao==2){
-                AnaliseDeAlgoritmo(new MochilaAlgoritmoGuloso());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new MochilaAlgoritmoGuloso())+" Decimos de Segundos");
             }
         }
         if(opcaoProblema==1){
@@ -51,10 +54,10 @@ public class AnaliseDeAlgoritmo {
             System.out.println("1-Deseja resolver a Par de Pontos com a solução: divisão e conquista");
             opcaoSolucao=Integer.parseInt(leitor.nextLine());
             if(opcaoSolucao==0){
-                AnaliseDeAlgoritmo(new DEPForcaBruta());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new DEPForcaBruta())+" Decimos de Segundos");
             }
             if(opcaoSolucao==1){
-                AnaliseDeAlgoritmo(new DEPDivisaoEConquista());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new DEPDivisaoEConquista())+" Decimos de Segundos");
             }
         }
         if(opcaoProblema==2)
@@ -64,10 +67,10 @@ public class AnaliseDeAlgoritmo {
             System.out.println("1-Deseja resolver a Supermercado com a solução: BackTracking");
             opcaoSolucao=Integer.parseInt(leitor.nextLine());
             if(opcaoSolucao==0){
-                AnaliseDeAlgoritmo(new SupermercadoForcaBruta());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new SupermercadoForcaBruta())+" Decimos de Segundos");
             }
             if(opcaoSolucao==1){
-                AnaliseDeAlgoritmo(new SupermercadoBackTracking());
+                System.out.println("Tempo :"+AnaliseDeAlgoritmo(new SupermercadoBackTracking())+" Decimos de Segundos");
             }
         }
         if(opcaoProblema==3)
@@ -86,7 +89,7 @@ public class AnaliseDeAlgoritmo {
             TimerCatcher.setFimDaOperacao();
             TimerCatcher.tempoDeExecucaoDaOperacao();
         }
-        return TimerCatcher.tempoDeExecucaoMedia();
+        return TimerCatcher.tempoDeExecucaoMedia()/10000000;
     }
     public static void test(Algoritmo algoritmo){
         MochilaForcaBruta mFB=new MochilaForcaBruta();
